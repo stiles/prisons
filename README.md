@@ -1,4 +1,4 @@
-# US srisons scraper
+# US prison location scraper
 
 Collects data about correctional facilities from multiple jurisdictions, starting with federal prisons and expanding to state systems. This project is a work in progress. 
 
