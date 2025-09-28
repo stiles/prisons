@@ -1,0 +1,27 @@
+[
+    {
+        "code":"TAL",
+        "name":"Tallahassee",
+        "securityLevel":"Low",
+        "region":"Southeast Region",
+        "latitude":"30.440196462640507",
+        "longitude":"-84.2227578163147",
+        "url":"\/locations\/institutions\/tal\/",
+        "timeZone":"E",
+        "address":"501 CAPITAL CIRCLE, NE",
+        "city":"TALLAHASSEE",
+        "state":"FL",
+        "zipCode":"32301",
+        "phoneNumber":"850-878-2173",
+        "contactEmail":"TAL-ExecAssistant-S@bop.gov",
+        "locationtype":"inst",
+        "privateFacl":"f",
+        "gender":"mixed",
+        "special":false,
+        "type":"FCI",
+        "faclTypeDescription":"Federal Correctional Institution",
+        "hasCamp":false,
+        "imageNormal":"\/locations\/institutions\/tal\/TAL_lrg.jpg",
+        "population":1234
+    }
+]
