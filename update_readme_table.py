@@ -62,6 +62,10 @@ def get_facility_counts():
         'arizona': {
             'name': 'Arizona',
             'agency': 'Dept. of Corrections (ADOC)'
+        },
+        'tennessee': {
+            'name': 'Tennessee',
+            'agency': 'Dept. of Correction (TDOC)'
         }
     }
     

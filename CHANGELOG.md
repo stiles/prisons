@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.0] - 2025-09-28
+
+### Added
+- **Tennessee Department of Correction (TDOC) scraper** - 15 facilities
+  - Regional facility organization (East, Middle, West Tennessee + Contract/Private)
+  - 86.7% warden coverage with comprehensive contact information
+  - 80.0% address coverage with detailed facility locations
+  - Individual facility page enhancement with capacity and security levels
+  - Comprehensive facility type classification (Penitentiary, Complex, Center, etc.)
+  - Retry logic for connection stability
+
+### Changed
+- Updated total coverage to **656 facilities across 14 jurisdictions**
+- Enhanced README table with Tennessee inclusion
+- Improved connection handling with retry mechanisms
+
 ## [0.7.0] - 2025-09-28
 
 ### Added
@@ -149,13 +165,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Project Milestones
 
-### v0.7.0 Achievements
-- **641 total facilities** across **13 jurisdictions**
+### v0.8.0 Achievements
+- **656 total facilities** across **14 jurisdictions**
 - **S3 cloud storage** with public data access at `https://stilesdata.com/prisons/`
 - **Advanced geocoding** with multi-service fallbacks
 - **Comprehensive data formats** (JSON, CSV, GeoJSON)
 - **Automated documentation** with dynamic table generation
 - **Pre-geocoded data sources** (Washington, Arizona) for maximum efficiency
+- **Regional facility organization** (Tennessee's East/Middle/West structure)
 
 ### Technical Evolution
 - **v0.1.0**: Basic scraping (4 jurisdictions, 298 facilities)
@@ -165,3 +182,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **v0.5.0**: Cloud integration (9 jurisdictions, 499 facilities)
 - **v0.6.0**: Pre-geocoded sources (11 jurisdictions, 549 facilities)
 - **v0.7.0**: Automated documentation (13 jurisdictions, 641 facilities)
+- **v0.8.0**: Regional organization (14 jurisdictions, 656 facilities)

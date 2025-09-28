@@ -18,9 +18,10 @@ Collects data about correctional facilities from multiple jurisdictions, startin
 | **Pennsylvania** | Dept. of Corrections (PA DOC) | 24 |
 | **Michigan** | Dept. of Corrections (MDOC) | 23 |
 | **Arizona** | Dept. of Corrections (ADOC) | 15 |
+| **Tennessee** | Dept. of Correction (TDOC) | 15 |
 | **Washington** | Dept. of Corrections (WADOC) | 13 |
 
-**Total Coverage**: 641 facilities across 13 jurisdictions
+**Total Coverage**: 656 facilities across 14 jurisdictions
 
 ## How it works
 
