@@ -13,7 +13,7 @@ A comprehensive prison data collection system that scrapes correctional facility
 - **Advanced Geocoding**: Google Maps API primary with OpenStreetMap fallbacks
 - **100% Geocoding Success**: All facilities have precise coordinates
 
-### ✅ Implemented Jurisdictions (564 Total Facilities)
+### ✅ Implemented Jurisdictions (664 Total Facilities)
 
 #### 1. Federal - Bureau of Prisons (BOP) - 122 Facilities
 - **Data Source**: [BOP facilities list](https://www.bop.gov/locations/list.jsp) + internal API
@@ -147,9 +147,36 @@ A comprehensive prison data collection system that scrapes correctional facility
   - Comprehensive facility type classification (Prison Complex, Correctional Center, etc.)
 - **Coverage**: Complete state coverage
 
+#### 14. Tennessee - TDOC - 15 Facilities
+- **Data Source**: [TDOC prison list](https://www.tn.gov/correction/state-prisons/state-prison-list.html)
+- **Implementation**: `scrapers/tennessee.py`
+- **Features**:
+  - Regional facility organization (East, Middle, West Tennessee + Contract/Private)
+  - 86.7% warden coverage with comprehensive contact information
+  - 80.0% address coverage with detailed facility locations
+  - Individual facility page enhancement with capacity and security levels
+  - Comprehensive facility type classification (Penitentiary, Complex, Center, etc.)
+  - Retry logic for connection stability
+- **Coverage**: Complete state coverage
+
+#### 15. Massachusetts - MADOC - 8 Facilities
+- **Data Source**: [MADOC locations page](https://www.mass.gov/orgs/massachusetts-department-of-correction/locations)
+- **Implementation**: `scrapers/massachusetts.py`
+- **Features**:
+  - ScrapeOps proxy integration to bypass 403 restrictions
+  - Leaflet map data extraction from embedded JavaScript
+  - 100% coordinate coverage with precise geocoding
+  - 100% phone and address coverage
+  - Comprehensive facility type classification (Pre-Release Centers, State Hospitals, Treatment Centers, etc.)
+  - Robust fallback system with hardcoded data when live scraping fails
+  - Advanced web scraping techniques for restrictive government websites
+- **Coverage**: Complete state coverage
+
 ### ✅ Technical Features
 - **Google Maps API Integration**: Primary geocoding with `GOOGLE_MAPS_API_KEY`
 - **Multi-tier Geocoding Fallbacks**: Nominatim, Photon, manual coordinates
+- **ScrapeOps Proxy Integration**: Bypass restrictive websites with `SCRAPE_PROXY_KEY`
+- **JavaScript Data Extraction**: Parse embedded Leaflet map data and Drupal settings
 - **Rate Limiting**: Respectful delays (0.1s Google API, 1s free services)
 - **Error Resilience**: SSL handling, graceful failures, detailed reporting
 - **Data Validation**: Coordinate bounds checking per jurisdiction
@@ -177,13 +204,13 @@ A comprehensive prison data collection system that scrapes correctional facility
   - Analyze data availability and structure
 - **Implementation**: Create `scrapers/new_jersey.py`
 
-### Priority 3: Massachusetts (7.0M residents)
-- **Target**: Massachusetts Department of Correction (MADOC)
+### Priority 3: Connecticut (3.6M residents)
+- **Target**: Connecticut Department of Correction (CTDOC)
 - **Estimated Facilities**: ~15+ facilities
 - **Research Needed**:
-  - Locate MADOC facility directory
+  - Locate CTDOC facility directory
   - Analyze data availability and structure
-- **Implementation**: Create `scrapers/massachusetts.py`
+- **Implementation**: Create `scrapers/connecticut.py`
 
 ## Advanced Features - Future Enhancements
 

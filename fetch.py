@@ -9,7 +9,7 @@ import os
 import pandas as pd
 import geopandas as gpd
 from shapely.geometry import Point
-from scrapers import FederalScraper, CaliforniaScraper, NewYorkScraper, TexasScraper, IllinoisScraper, FloridaScraper, PennsylvaniaScraper, GeorgiaScraper, NorthCarolinaScraper, MichiganScraper, VirginiaScraper, WashingtonScraper, ArizonaScraper, TennesseeScraper
+from scrapers import FederalScraper, CaliforniaScraper, NewYorkScraper, TexasScraper, IllinoisScraper, FloridaScraper, PennsylvaniaScraper, GeorgiaScraper, NorthCarolinaScraper, MichiganScraper, VirginiaScraper, WashingtonScraper, ArizonaScraper, TennesseeScraper, MassachusettsScraper
 from s3_upload import S3Uploader
 
 
@@ -210,6 +210,16 @@ def scrape_tennessee():
         df = pd.DataFrame(data)
         export_data(df, 'tennessee', 'data/tennessee')
         return df
+
+def scrape_massachusetts():
+    """Scrape Massachusetts state prison data"""
+    scraper = MassachusettsScraper()
+    data = scraper.scrape_facilities()
+    
+    if data:
+        df = pd.DataFrame(data)
+        export_data(df, 'massachusetts', 'data/massachusetts')
+        return df
     return pd.DataFrame()
 
 
@@ -218,7 +228,7 @@ def main():
     parser = argparse.ArgumentParser(description='Scrape prison data from multiple jurisdictions')
     parser.add_argument('--states', 
                        default='federal', 
-                       help='Comma-separated list of jurisdictions to scrape (federal,california,texas,new_york,illinois,florida,pennsylvania,georgia,north_carolina,michigan,virginia,washington,arizona,tennessee)')
+                       help='Comma-separated list of jurisdictions to scrape (federal,california,texas,new_york,illinois,florida,pennsylvania,georgia,north_carolina,michigan,virginia,washington,arizona,tennessee,massachusetts)')
     parser.add_argument('--output-dir', 
                        default='data', 
                        help='Base output directory for data files')
@@ -251,7 +261,8 @@ def main():
         'virginia': scrape_virginia,
         'washington': scrape_washington,
         'arizona': scrape_arizona,
-        'tennessee': scrape_tennessee
+        'tennessee': scrape_tennessee,
+        'massachusetts': scrape_massachusetts
     }
     
     print("Prison Data Scraper")

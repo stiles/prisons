@@ -20,8 +20,9 @@ Collects data about correctional facilities from multiple jurisdictions, startin
 | **Arizona** | Dept. of Corrections (ADOC) | 15 |
 | **Tennessee** | Dept. of Correction (TDOC) | 15 |
 | **Washington** | Dept. of Corrections (WADOC) | 13 |
+| **Massachusetts** | Dept. of Correction (MADOC) | 8 |
 
-**Total Coverage**: 656 facilities across 14 jurisdictions
+**Total Coverage**: 664 facilities across 15 jurisdictions
 
 ## How it works
 
@@ -43,7 +44,7 @@ Scrape specific jurisdictions:
 ```bash
 python fetch.py --states north_carolina
 python fetch.py --states federal
-python fetch.py --states texas,illinois,north_carolina,michigan,virginia,washington,arizona
+python fetch.py --states texas,illinois,north_carolina,michigan,virginia,washington,arizona,massachusetts
 
 # Upload to S3 after scraping
 python fetch.py --states michigan --upload-s3

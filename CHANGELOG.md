@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.0] - 2025-09-28
+
+### Added
+- **Massachusetts Department of Correction (MADOC) scraper** - 8 facilities
+  - ScrapeOps proxy integration to bypass 403 restrictions
+  - Leaflet map data extraction from embedded JavaScript
+  - 100% coordinate coverage with precise geocoding
+  - 100% phone and address coverage
+  - Comprehensive facility type classification (Pre-Release Centers, State Hospitals, Treatment Centers, etc.)
+  - Robust fallback system with hardcoded data when live scraping fails
+  - Advanced web scraping techniques for restrictive government websites
+
+### Changed
+- Updated total coverage to **664 facilities across 15 jurisdictions**
+- Enhanced README table with Massachusetts inclusion
+- Improved proxy-based scraping capabilities for blocked websites
+- Added ScrapeOps proxy support as environment variable option
+
+### Technical
+- Implemented multi-tier data access (proxy → fallback)
+- Added JavaScript data extraction capabilities
+- Enhanced facility type detection algorithms
+- Improved error handling for government website restrictions
+
 ## [0.8.0] - 2025-09-28
 
 ### Added
