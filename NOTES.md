@@ -1,7 +1,10 @@
 
+✅ **S3 Upload Implemented**: Data sets are now automatically uploaded to S3 bucket `stilesdata.com > prisons` using AWS profile from `AWS_PROFILE_NAME`. 
 
-Made an empty Github repo: https://github.com/stiles/prisons.git. Let's get this code connected to that. 
+**Usage**:
+- `python fetch.py --states michigan --upload-s3` - Scrape and upload
+- `python s3_upload.py` - Upload all existing data
+- `python s3_upload.py --list` - List bucket contents
+- `python s3_upload.py --urls michigan` - Get public URLs
 
-Need a CHANGELOG.md file. Today is Sept. 28. Yesterday we started the project and added the federal scraper. Today we've been adding states. 
-
-We should store these data sets on S3 in bucket: stilesdata.com > prisons. 
+**Public Access**: https://stilesdata.com/prisons/{jurisdiction}/{jurisdiction}_prisons.{json|csv|geojson} 

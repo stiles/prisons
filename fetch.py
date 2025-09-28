@@ -9,7 +9,8 @@ import os
 import pandas as pd
 import geopandas as gpd
 from shapely.geometry import Point
-from scrapers import FederalScraper, CaliforniaScraper, NewYorkScraper, TexasScraper, IllinoisScraper, FloridaScraper
+from scrapers import FederalScraper, CaliforniaScraper, NewYorkScraper, TexasScraper, IllinoisScraper, FloridaScraper, PennsylvaniaScraper, GeorgiaScraper, NorthCarolinaScraper, MichiganScraper
+from s3_upload import S3Uploader
 
 
 def export_data(df, jurisdiction, output_dir):
@@ -116,15 +117,71 @@ def scrape_florida():
     return pd.DataFrame()
 
 
+def scrape_pennsylvania():
+    """Scrape Pennsylvania state prison data"""
+    scraper = PennsylvaniaScraper()
+    data = scraper.scrape_all()
+    
+    if data:
+        df = pd.DataFrame(data)
+        export_data(df, 'pennsylvania', 'data/pennsylvania')
+        return df
+    return pd.DataFrame()
+
+
+def scrape_georgia():
+    """Scrape Georgia state prison data"""
+    scraper = GeorgiaScraper()
+    data = scraper.scrape_facilities()
+    
+    if data:
+        df = pd.DataFrame(data)
+        export_data(df, 'georgia', 'data/georgia')
+        return df
+    return pd.DataFrame()
+
+
+def scrape_north_carolina():
+    """Scrape North Carolina state prison data"""
+    scraper = NorthCarolinaScraper()
+    data = scraper.scrape_facilities()
+    
+    if data:
+        df = pd.DataFrame(data)
+        export_data(df, 'north_carolina', 'data/north_carolina')
+        return df
+    return pd.DataFrame()
+
+
+def scrape_michigan():
+    """Scrape Michigan state prison data"""
+    scraper = MichiganScraper()
+    data = scraper.scrape_facilities()
+    
+    if data:
+        df = pd.DataFrame(data)
+        export_data(df, 'michigan', 'data/michigan')
+        return df
+    return pd.DataFrame()
+
+
 def main():
     """Main function to orchestrate prison data collection"""
     parser = argparse.ArgumentParser(description='Scrape prison data from multiple jurisdictions')
     parser.add_argument('--states', 
                        default='federal', 
-                       help='Comma-separated list of jurisdictions to scrape (federal,california,texas,new_york,illinois,florida)')
+                       help='Comma-separated list of jurisdictions to scrape (federal,california,texas,new_york,illinois,florida,pennsylvania,georgia,north_carolina,michigan)')
     parser.add_argument('--output-dir', 
                        default='data', 
                        help='Base output directory for data files')
+    parser.add_argument('--upload-s3', 
+                       action='store_true',
+                       help='Upload data to S3 after scraping')
+    parser.add_argument('--s3-bucket', 
+                       default='stilesdata.com',
+                       help='S3 bucket name for uploads')
+    parser.add_argument('--aws-profile',
+                       help='AWS profile name (overrides AWS_PROFILE_NAME env var)')
     
     args = parser.parse_args()
     
@@ -138,7 +195,11 @@ def main():
         'texas': scrape_texas,
         'new_york': scrape_new_york,
         'illinois': scrape_illinois,
-        'florida': scrape_florida
+        'florida': scrape_florida,
+        'pennsylvania': scrape_pennsylvania,
+        'georgia': scrape_georgia,
+        'north_carolina': scrape_north_carolina,
+        'michigan': scrape_michigan
     }
     
     print("Prison Data Scraper")
@@ -182,6 +243,28 @@ def main():
     if total_facilities > 0:
         print(f"\nData exported to: {args.output_dir}/")
         print("Available formats: JSON, CSV, GeoJSON (where coordinates available)")
+        
+        # Upload to S3 if requested
+        if args.upload_s3:
+            try:
+                print(f"\n{'='*20} S3 UPLOAD {'='*20}")
+                uploader = S3Uploader(bucket_name=args.s3_bucket, profile_name=args.aws_profile)
+                
+                upload_results = uploader.upload_prison_data(args.output_dir)
+                
+                total_uploaded = sum(result['files_uploaded'] for result in upload_results.values())
+                print(f"\nS3 Upload Summary:")
+                for jurisdiction, result in upload_results.items():
+                    files_count = result['files_uploaded']
+                    status = "✓" if files_count > 0 else "✗"
+                    print(f"{status} {jurisdiction}: {files_count} files uploaded")
+                
+                print(f"\nTotal files uploaded to S3: {total_uploaded}")
+                print(f"Data available at: https://{args.s3_bucket}/prisons/")
+                
+            except Exception as e:
+                print(f"✗ S3 upload failed: {e}")
+                print("Data remains available locally")
 
 
 if __name__ == "__main__":

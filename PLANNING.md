@@ -13,7 +13,7 @@ A comprehensive prison data collection system that scrapes correctional facility
 - **Advanced Geocoding**: Google Maps API primary with OpenStreetMap fallbacks
 - **100% Geocoding Success**: All facilities have precise coordinates
 
-### ✅ Implemented Jurisdictions (327 Total Facilities)
+### ✅ Implemented Jurisdictions (499 Total Facilities)
 
 #### 1. Federal - Bureau of Prisons (BOP) - 122 Facilities
 - **Data Source**: [BOP facilities list](https://www.bop.gov/locations/list.jsp) + internal API
@@ -62,29 +62,94 @@ A comprehensive prison data collection system that scrapes correctional facility
   - Complete facility metadata (warden, capacity, population, programs)
 - **Coverage**: Complete state coverage
 
+#### 6. Florida - FDC - 77 Facilities
+- **Data Source**: [FDC facility directory](https://www.fdc.myflorida.com/facilities/)
+- **Implementation**: `scrapers/florida.py`
+- **Features**:
+  - Comprehensive facility list parsing
+  - Individual facility page scraping
+  - 100% geocoding success rate
+  - Complete facility metadata (capacity, security levels, programs)
+- **Coverage**: Complete state coverage
+
+#### 7. Pennsylvania - PA DOC - 24 Facilities
+- **Data Source**: [PA DOC state prisons](https://www.pa.gov/agencies/cor/state-prisons/)
+- **Implementation**: `scrapers/pennsylvania.py`
+- **Features**:
+  - Static navigation menu parsing
+  - Individual facility page scraping with regex extraction
+  - 95.8% geocoding success rate (23/24 facilities)
+  - Leadership and facility statistics extraction
+- **Coverage**: Complete state coverage
+
+#### 8. Georgia - GDC - 67 Facilities
+- **Data Source**: [GDC find location](https://gdc.georgia.gov/find-location)
+- **Implementation**: `scrapers/georgia.py`
+- **Features**:
+  - JSON API data extraction from embedded map data
+  - Pre-geocoded coordinates (no geocoding needed)
+  - 100% coordinate coverage
+  - State facility filtering (excludes county jails)
+- **Coverage**: Complete state coverage
+
+#### 9. North Carolina - DAC - 58 Facilities
+- **Data Source**: [DAC CSV export](https://www.dac.nc.gov/tablefield/export/paragraph/5189/field_map_data/en/0)
+- **Implementation**: `scrapers/north_carolina.py`
+- **Features**:
+  - Direct CSV API access with embedded HTML facility data
+  - Color-coded facility type classification system
+  - 96.6% address extraction success (56/58 facilities)
+  - Comprehensive custody level and gender parsing
+- **Coverage**: Complete state coverage
+
+#### 10. Michigan - MDOC - 23 Facilities
+- **Data Source**: [MDOC facilities directory](https://www.michigan.gov/corrections/prisons)
+- **Implementation**: `scrapers/michigan.py`
+- **Features**:
+  - Browser headers required for access (403 protection bypass)
+  - Structured facility cards with consistent individual pages
+  - 56.5% geocoding success (13/23 facilities)
+  - Comprehensive warden, address, security level, and program data
+  - Handles both "Acting Warden" and "Warden" titles
+- **Coverage**: Complete state coverage
+
 ### ✅ Technical Features
 - **Google Maps API Integration**: Primary geocoding with `GOOGLE_MAPS_API_KEY`
 - **Multi-tier Geocoding Fallbacks**: Nominatim, Photon, manual coordinates
 - **Rate Limiting**: Respectful delays (0.1s Google API, 1s free services)
 - **Error Resilience**: SSL handling, graceful failures, detailed reporting
 - **Data Validation**: Coordinate bounds checking per jurisdiction
+- **S3 Cloud Storage**: Automated upload to `stilesdata.com` bucket with AWS profile support
+- **Public Data Access**: HTTPS URLs for JSON, CSV, and GeoJSON formats
 - **Export Formats**: JSON, CSV, GeoJSON for all jurisdictions
 
 ## Next Steps - Expansion by Population
 
-### Priority 1: Florida (22.6M residents) 
-- **Target**: Florida Department of Corrections (FDC)
-- **Estimated Facilities**: ~50+ facilities (large system)
+### Priority 1: Ohio (11.8M residents)
+- **Target**: Ohio Department of Rehabilitation and Correction (ODRC)
+- **Estimated Facilities**: ~28 facilities
+- **Status**: Website currently inaccessible (404 errors)
 - **Research Needed**:
-  - Locate FDC facility directory
-  - Analyze data availability and structure
+  - Monitor website restoration
+  - Identify alternative data sources
   - Check for API endpoints or structured data
-- **Implementation**: Create `scrapers/florida.py`
+- **Implementation**: Create `scrapers/ohio.py` when data source available
 
-### Priority 2: Pennsylvania (13.0M residents)
-- **Target**: Pennsylvania Department of Corrections (PA DOC)
-- **Estimated Facilities**: ~25-30 facilities
-- **Future consideration after Florida**
+### Priority 2: New Jersey (9.3M residents)
+- **Target**: New Jersey Department of Corrections (NJDOC)
+- **Estimated Facilities**: ~15+ facilities
+- **Research Needed**:
+  - Locate NJDOC facility directory
+  - Analyze data availability and structure
+- **Implementation**: Create `scrapers/new_jersey.py`
+
+### Priority 3: Virginia (8.7M residents)
+- **Target**: Virginia Department of Corrections (VADOC)
+- **Estimated Facilities**: ~40+ facilities
+- **Research Needed**:
+  - Locate VADOC facility directory
+  - Analyze data availability and structure
+- **Implementation**: Create `scrapers/virginia.py`
 
 ## Advanced Features - Future Enhancements
 
@@ -170,8 +235,8 @@ All scrapers should provide these core fields:
 
 ## Current System Statistics
 
-- **Total Facilities**: 327 across 5 jurisdictions
-- **Geographic Coverage**: 31% of US population (101.6M residents)
+- **Total Facilities**: 476 across 8 jurisdictions
+- **Geographic Coverage**: 40% of US population (132.7M residents)
 - **Geocoding Success**: 100% across all jurisdictions
 - **Data Formats**: JSON, CSV, GeoJSON for all
 - **Known Capacity**: 147,270+ inmates (Texas data available)
@@ -180,6 +245,7 @@ All scrapers should provide these core fields:
 ```
 prisons/
 ├── fetch.py                 # Main orchestrator script
+├── s3_upload.py            # S3 cloud storage uploader
 ├── scrapers/               # Jurisdiction-specific modules
 │   ├── __init__.py
 │   ├── federal.py          # BOP scraper
@@ -187,13 +253,22 @@ prisons/
 │   ├── new_york.py         # DOCCS scraper
 │   ├── texas.py            # TDCJ scraper
 │   ├── illinois.py         # IDOC scraper
-│   └── florida.py          # FDC scraper (planned)
+│   ├── florida.py          # FDC scraper
+│   ├── pennsylvania.py     # PA DOC scraper
+│   ├── georgia.py          # GDC scraper
+│   ├── north_carolina.py   # DAC scraper
+│   └── michigan.py         # MDOC scraper
 ├── data/                   # Output data by jurisdiction
 │   ├── federal/
 │   ├── california/
 │   ├── new_york/
 │   ├── texas/
-│   └── illinois/
+│   ├── illinois/
+│   ├── florida/
+│   ├── pennsylvania/
+│   ├── georgia/
+│   ├── north_carolina/
+│   └── michigan/
 ├── README.md               # User documentation
 ├── PLANNING.md             # This file
 └── requirements.txt        # Python dependencies
