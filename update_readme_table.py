@@ -70,6 +70,10 @@ def get_facility_counts():
         'massachusetts': {
             'name': 'Massachusetts',
             'agency': 'Dept. of Correction (MADOC)'
+        },
+        'indiana': {
+            'name': 'Indiana',
+            'agency': 'Dept. of Correction (IDOC)'
         }
     }
     
