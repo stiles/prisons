@@ -21,9 +21,10 @@ Collects data about correctional facilities from multiple jurisdictions, startin
 | **Arizona** | Dept. of Corrections (ADOC) | 15 |
 | **Tennessee** | Dept. of Correction (TDOC) | 15 |
 | **Washington** | Dept. of Corrections (WADOC) | 13 |
+| **Maryland** | Dept. of Public Safety and Correctional Services (DPSCS) | 13 |
 | **Massachusetts** | Dept. of Correction (MADOC) | 8 |
 
-**Total Coverage**: 682 facilities across 16 jurisdictions
+**Total Coverage**: 695 facilities across 17 jurisdictions
 
 ## How it works
 

@@ -74,6 +74,10 @@ def get_facility_counts():
         'indiana': {
             'name': 'Indiana',
             'agency': 'Dept. of Correction (IDOC)'
+        },
+        'maryland': {
+            'name': 'Maryland',
+            'agency': 'Dept. of Public Safety and Correctional Services (DPSCS)'
         }
     }
     
