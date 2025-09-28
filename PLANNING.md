@@ -13,7 +13,7 @@ A comprehensive prison data collection system that scrapes correctional facility
 - **Advanced Geocoding**: Google Maps API primary with OpenStreetMap fallbacks
 - **100% Geocoding Success**: All facilities have precise coordinates
 
-### ✅ Implemented Jurisdictions (499 Total Facilities)
+### ✅ Implemented Jurisdictions (564 Total Facilities)
 
 #### 1. Federal - Bureau of Prisons (BOP) - 122 Facilities
 - **Data Source**: [BOP facilities list](https://www.bop.gov/locations/list.jsp) + internal API
@@ -113,6 +113,40 @@ A comprehensive prison data collection system that scrapes correctional facility
   - Handles both "Acting Warden" and "Warden" titles
 - **Coverage**: Complete state coverage
 
+#### 11. Virginia - VADOC - 37 Facilities
+- **Data Source**: [VADOC facilities directory](https://www.vadoc.virginia.gov/facilities-and-offices)
+- **Implementation**: `scrapers/virginia.py`
+- **Features**:
+  - Multi-line address parsing from structured facility blocks
+  - 89.2% geocoding success (33/37 facilities)
+  - Comprehensive facility type classification system
+  - Warden/superintendent data extraction with title parsing
+  - Dropdown menu integration for complete facility coverage
+- **Coverage**: Complete state coverage
+
+#### 12. Washington - WADOC - 13 Facilities
+- **Data Source**: [WADOC facilities map](https://doc.wa.gov/about-doc/locations/prison-facilities/prisons-map)
+- **Implementation**: `scrapers/washington.py`
+- **Features**:
+  - Pre-geocoded coordinates from embedded geolocation data
+  - 76.9% coordinate coverage (10/13 facilities)
+  - Individual facility page enhancement with capacity and custody levels
+  - Dual data source integration (map + table data)
+  - Comprehensive facility type classification (Penitentiary, Corrections Center, Reentry Center, etc.)
+- **Coverage**: Complete state coverage
+
+#### 13. Arizona - ADOC - 15 Facilities
+- **Data Source**: [ADOC prisons directory](https://corrections.az.gov/adcrr-prisons)
+- **Implementation**: `scrapers/arizona.py`
+- **Features**:
+  - Embedded JSON data extraction from Drupal settings
+  - 100% coordinate coverage (15/15 facilities)
+  - 93.3% warden coverage (14/15 facilities)
+  - Individual facility page enhancement with capacity, security levels, and unit details
+  - Rich facility information including warden contact details and facility descriptions
+  - Comprehensive facility type classification (Prison Complex, Correctional Center, etc.)
+- **Coverage**: Complete state coverage
+
 ### ✅ Technical Features
 - **Google Maps API Integration**: Primary geocoding with `GOOGLE_MAPS_API_KEY`
 - **Multi-tier Geocoding Fallbacks**: Nominatim, Photon, manual coordinates
@@ -143,13 +177,13 @@ A comprehensive prison data collection system that scrapes correctional facility
   - Analyze data availability and structure
 - **Implementation**: Create `scrapers/new_jersey.py`
 
-### Priority 3: Virginia (8.7M residents)
-- **Target**: Virginia Department of Corrections (VADOC)
-- **Estimated Facilities**: ~40+ facilities
+### Priority 3: Massachusetts (7.0M residents)
+- **Target**: Massachusetts Department of Correction (MADOC)
+- **Estimated Facilities**: ~15+ facilities
 - **Research Needed**:
-  - Locate VADOC facility directory
+  - Locate MADOC facility directory
   - Analyze data availability and structure
-- **Implementation**: Create `scrapers/virginia.py`
+- **Implementation**: Create `scrapers/massachusetts.py`
 
 ## Advanced Features - Future Enhancements
 
@@ -257,7 +291,10 @@ prisons/
 │   ├── pennsylvania.py     # PA DOC scraper
 │   ├── georgia.py          # GDC scraper
 │   ├── north_carolina.py   # DAC scraper
-│   └── michigan.py         # MDOC scraper
+│   ├── michigan.py         # MDOC scraper
+│   ├── virginia.py         # VADOC scraper
+│   ├── washington.py       # WADOC scraper
+│   └── arizona.py          # ADOC scraper
 ├── data/                   # Output data by jurisdiction
 │   ├── federal/
 │   ├── california/
@@ -268,7 +305,10 @@ prisons/
 │   ├── pennsylvania/
 │   ├── georgia/
 │   ├── north_carolina/
-│   └── michigan/
+│   ├── michigan/
+│   ├── virginia/
+│   ├── washington/
+│   └── arizona/
 ├── README.md               # User documentation
 ├── PLANNING.md             # This file
 └── requirements.txt        # Python dependencies

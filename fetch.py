@@ -9,7 +9,7 @@ import os
 import pandas as pd
 import geopandas as gpd
 from shapely.geometry import Point
-from scrapers import FederalScraper, CaliforniaScraper, NewYorkScraper, TexasScraper, IllinoisScraper, FloridaScraper, PennsylvaniaScraper, GeorgiaScraper, NorthCarolinaScraper, MichiganScraper
+from scrapers import FederalScraper, CaliforniaScraper, NewYorkScraper, TexasScraper, IllinoisScraper, FloridaScraper, PennsylvaniaScraper, GeorgiaScraper, NorthCarolinaScraper, MichiganScraper, VirginiaScraper, WashingtonScraper, ArizonaScraper
 from s3_upload import S3Uploader
 
 
@@ -165,12 +165,48 @@ def scrape_michigan():
     return pd.DataFrame()
 
 
+def scrape_virginia():
+    """Scrape Virginia state prison data"""
+    scraper = VirginiaScraper()
+    data = scraper.scrape_facilities()
+    
+    if data:
+        df = pd.DataFrame(data)
+        export_data(df, 'virginia', 'data/virginia')
+        return df
+    return pd.DataFrame()
+
+
+def scrape_washington():
+    """Scrape Washington state prison data"""
+    scraper = WashingtonScraper()
+    data = scraper.scrape_facilities()
+    
+    if data:
+        df = pd.DataFrame(data)
+        export_data(df, 'washington', 'data/washington')
+        return df
+    return pd.DataFrame()
+
+
+def scrape_arizona():
+    """Scrape Arizona state prison data"""
+    scraper = ArizonaScraper()
+    data = scraper.scrape_facilities()
+    
+    if data:
+        df = pd.DataFrame(data)
+        export_data(df, 'arizona', 'data/arizona')
+        return df
+    return pd.DataFrame()
+
+
 def main():
     """Main function to orchestrate prison data collection"""
     parser = argparse.ArgumentParser(description='Scrape prison data from multiple jurisdictions')
     parser.add_argument('--states', 
                        default='federal', 
-                       help='Comma-separated list of jurisdictions to scrape (federal,california,texas,new_york,illinois,florida,pennsylvania,georgia,north_carolina,michigan)')
+                       help='Comma-separated list of jurisdictions to scrape (federal,california,texas,new_york,illinois,florida,pennsylvania,georgia,north_carolina,michigan,virginia,washington,arizona)')
     parser.add_argument('--output-dir', 
                        default='data', 
                        help='Base output directory for data files')
@@ -199,7 +235,10 @@ def main():
         'pennsylvania': scrape_pennsylvania,
         'georgia': scrape_georgia,
         'north_carolina': scrape_north_carolina,
-        'michigan': scrape_michigan
+        'michigan': scrape_michigan,
+        'virginia': scrape_virginia,
+        'washington': scrape_washington,
+        'arizona': scrape_arizona
     }
     
     print("Prison Data Scraper")

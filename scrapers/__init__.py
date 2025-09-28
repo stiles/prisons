@@ -12,5 +12,8 @@ from .pennsylvania import PennsylvaniaScraper
 from .georgia import GeorgiaScraper
 from .north_carolina import NorthCarolinaScraper
 from .michigan import MichiganScraper
+from .virginia import VirginiaScraper
+from .washington import WashingtonScraper
+from .arizona import ArizonaScraper
 
-__all__ = ['FederalScraper', 'CaliforniaScraper', 'NewYorkScraper', 'TexasScraper', 'IllinoisScraper', 'FloridaScraper', 'PennsylvaniaScraper', 'GeorgiaScraper', 'NorthCarolinaScraper', 'MichiganScraper']
+__all__ = ['FederalScraper', 'CaliforniaScraper', 'NewYorkScraper', 'TexasScraper', 'IllinoisScraper', 'FloridaScraper', 'PennsylvaniaScraper', 'GeorgiaScraper', 'NorthCarolinaScraper', 'MichiganScraper', 'VirginiaScraper', 'WashingtonScraper', 'ArizonaScraper']

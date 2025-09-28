@@ -7,6 +7,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2025-09-28
+
+### Added
+- **Arizona Department of Corrections (ADOC) scraper** - 15 facilities
+  - Embedded JSON data extraction from Drupal settings
+  - 100% coordinate coverage (pre-geocoded data)
+  - 93.3% warden coverage with contact details
+  - Individual facility page enhancement with capacity, security levels, and unit details
+  - Rich facility information including warden profiles and descriptions
+- **Automated README table generation** (`update_readme_table.py`)
+  - Dynamic facility count updates from CSV data
+  - Sorted table by facility count (high to low)
+  - Automated total coverage calculation
+
+### Changed
+- **Simplified README table structure** - Removed confusing population column, added clear facility counts
+- Updated total coverage to **641 facilities across 13 jurisdictions**
+- Enhanced table readability with facility-count-based sorting
+- Streamlined documentation with automated table maintenance
+
+## [0.6.0] - 2025-09-28
+
+### Added
+- **Washington Department of Corrections (WADOC) scraper** - 13 facilities
+  - Pre-geocoded coordinates from embedded geolocation data
+  - 76.9% coordinate coverage (10/13 facilities)
+  - Individual facility page enhancement with capacity and custody levels
+  - Dual data source integration (map + table data)
+  - Comprehensive facility type classification (Penitentiary, Corrections Center, Reentry Center)
+
+### Changed
+- Updated total coverage to **549 facilities across 11 jurisdictions (47% US population)**
+- Enhanced next steps priorities (Ohio postponed due to website issues, New Jersey moved up)
+
 ## [0.5.0] - 2024-09-28
 
 ### Added
@@ -115,12 +149,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Project Milestones
 
-### v0.5.0 Achievements
-- **499 total facilities** across **9 jurisdictions**
-- **42% US population coverage** (139.5M residents)
-- **S3 cloud storage** with public data access
+### v0.7.0 Achievements
+- **641 total facilities** across **13 jurisdictions**
+- **S3 cloud storage** with public data access at `https://stilesdata.com/prisons/`
 - **Advanced geocoding** with multi-service fallbacks
 - **Comprehensive data formats** (JSON, CSV, GeoJSON)
+- **Automated documentation** with dynamic table generation
+- **Pre-geocoded data sources** (Washington, Arizona) for maximum efficiency
 
 ### Technical Evolution
 - **v0.1.0**: Basic scraping (4 jurisdictions, 298 facilities)
@@ -128,3 +163,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **v0.3.0**: Multi-state expansion (7 jurisdictions, 418 facilities)
 - **v0.4.0**: Advanced geocoding (8 jurisdictions, 476 facilities)
 - **v0.5.0**: Cloud integration (9 jurisdictions, 499 facilities)
+- **v0.6.0**: Pre-geocoded sources (11 jurisdictions, 549 facilities)
+- **v0.7.0**: Automated documentation (13 jurisdictions, 641 facilities)

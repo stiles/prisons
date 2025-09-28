@@ -1,23 +1,26 @@
-# Prison Data Scraper
+# US srisons scraper
 
-Collects comprehensive data about correctional facilities from multiple jurisdictions, starting with federal prisons and expanding to state systems.
+Collects data about correctional facilities from multiple jurisdictions, starting with federal prisons and expanding to state systems. This project is a work in progress. 
 
-## Coverage
+## Coverage so far
 
-| Jurisdiction | Agency | Facilities | Population | Status |
-|--------------|--------|------------|------------|---------|
-| **Federal** | Bureau of Prisons (BOP) | 122 | 334.2M | ✅ Complete |
-| **California** | Dept. of Corrections and Rehabilitation (CDCR) | 31 | 39.0M | ✅ Complete |
-| **Texas** | Dept. of Criminal Justice (TDCJ) | 103 | 30.0M | ✅ Complete |
-| **New York** | Dept. of Corrections and Community Supervision (DOCCS) | 42 | 19.3M | ✅ Complete |
-| **Illinois** | Dept. of Corrections (IDOC) | 29 | 12.8M | ✅ Complete |
-| **Florida** | Dept. of Corrections (FDC) | 77 | 22.6M | ✅ Complete |
-| **Pennsylvania** | Dept. of Corrections (PA DOC) | 24 | 13.0M | ✅ Complete |
-| **Georgia** | Dept. of Corrections (GDC) | 67 | 10.9M | ✅ Complete |
-| **North Carolina** | Dept. of Adult Correction (DAC) | 58 | 10.7M | ✅ Complete |
-| **Michigan** | Dept. of Corrections (MDOC) | 23 | 10.0M | ✅ Complete |
+| Jurisdiction | Agency | Facilities |
+|--------------|--------|------------|
+| **Federal** | Bureau of Prisons (BOP) | 122 |
+| **Texas** | Dept. of Criminal Justice (TDCJ) | 103 |
+| **Florida** | Dept. of Corrections (FDC) | 77 |
+| **Georgia** | Dept. of Corrections (GDC) | 67 |
+| **North Carolina** | Dept. of Adult Correction (DAC) | 58 |
+| **New York** | Dept. of Corrections and Community Supervision (DOCCS) | 42 |
+| **Virginia** | Dept. of Corrections (VADOC) | 37 |
+| **California** | Dept. of Corrections and Rehabilitation (CDCR) | 31 |
+| **Illinois** | Dept. of Corrections (IDOC) | 29 |
+| **Pennsylvania** | Dept. of Corrections (PA DOC) | 24 |
+| **Michigan** | Dept. of Corrections (MDOC) | 23 |
+| **Arizona** | Dept. of Corrections (ADOC) | 15 |
+| **Washington** | Dept. of Corrections (WADOC) | 13 |
 
-**Total Coverage**: 499 facilities across 9 jurisdictions (42% of US population)
+**Total Coverage**: 641 facilities across 13 jurisdictions
 
 ## How it works
 
@@ -39,13 +42,13 @@ Scrape specific jurisdictions:
 ```bash
 python fetch.py --states north_carolina
 python fetch.py --states federal
-python fetch.py --states texas,illinois,north_carolina,michigan
+python fetch.py --states texas,illinois,north_carolina,michigan,virginia,washington,arizona
 
 # Upload to S3 after scraping
 python fetch.py --states michigan --upload-s3
 ```
 
-## S3 Data Storage
+## S3 data storage
 
 The system can automatically upload data to S3 for public access:
 
@@ -63,7 +66,7 @@ python s3_upload.py --list
 python s3_upload.py --urls michigan
 ```
 
-**Public Data Access**: All data is available at `https://stilesdata.com/prisons/` with the following structure:
+**Public data access**: All data is available at `https://stilesdata.com/prisons/` with the following structure:
 - `https://stilesdata.com/prisons/{jurisdiction}/{jurisdiction}_prisons.json`
 - `https://stilesdata.com/prisons/{jurisdiction}/{jurisdiction}_prisons.csv` 
 - `https://stilesdata.com/prisons/{jurisdiction}/{jurisdiction}_prisons.geojson`
