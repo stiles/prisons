@@ -119,14 +119,23 @@ def generate_table_markdown(facility_counts):
     )
     
     lines = []
-    lines.append("| Jurisdiction | Agency | Facilities |")
-    lines.append("|--------------|--------|------------|")
+    lines.append("| Jurisdiction | Agency | Facilities | Institutions data |")
+    lines.append("|--------------|--------|------------|------|")
     
     for jurisdiction_key, info in sorted_jurisdictions:
         name = f"**{info['name']}**"
         agency = info['agency']
         count = info['count']
-        lines.append(f"| {name} | {agency} | {count} |")
+        
+        # Generate S3 data links
+        base_url = f"https://stilesdata.com/prisons/{jurisdiction_key}"
+        csv_link = f"[CSV]({base_url}/{jurisdiction_key}_prisons.csv)"
+        json_link = f"[JSON]({base_url}/{jurisdiction_key}_prisons.json)"
+        geojson_link = f"[GeoJSON]({base_url}/{jurisdiction_key}_prisons.geojson)"
+        
+        data_links = f"{csv_link} \\| {json_link} \\| {geojson_link}"
+        
+        lines.append(f"| {name} | {agency} | {count} | {data_links} |")
     
     return '\n'.join(lines)
 
@@ -143,7 +152,7 @@ def update_readme(table_markdown, total_facilities, total_jurisdictions):
         content = f.read()
     
     # Find the table section and replace it
-    start_marker = "| Jurisdiction | Agency | Facilities |"
+    start_marker = "| Jurisdiction | Agency | Facilities"
     end_marker = f"**Total Coverage**: "
     
     start_idx = content.find(start_marker)

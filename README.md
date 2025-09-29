@@ -4,26 +4,26 @@ Collects data about correctional facilities from multiple jurisdictions, startin
 
 ## Coverage so far
 
-| Jurisdiction | Agency | Facilities |
-|--------------|--------|------------|
-| **Federal** | Bureau of Prisons (BOP) | 122 |
-| **Texas** | Dept. of Criminal Justice (TDCJ) | 103 |
-| **Florida** | Dept. of Corrections (FDC) | 77 |
-| **Georgia** | Dept. of Corrections (GDC) | 67 |
-| **North Carolina** | Dept. of Adult Correction (DAC) | 58 |
-| **New York** | Dept. of Corrections and Community Supervision (DOCCS) | 42 |
-| **Virginia** | Dept. of Corrections (VADOC) | 37 |
-| **California** | Dept. of Corrections and Rehabilitation (CDCR) | 31 |
-| **Illinois** | Dept. of Corrections (IDOC) | 29 |
-| **Pennsylvania** | Dept. of Corrections (PA DOC) | 24 |
-| **Michigan** | Dept. of Corrections (MDOC) | 23 |
-| **Missouri** | Dept. of Corrections (MODOC) | 19 |
-| **Indiana** | Dept. of Correction (IDOC) | 18 |
-| **Arizona** | Dept. of Corrections (ADOC) | 15 |
-| **Tennessee** | Dept. of Correction (TDOC) | 15 |
-| **Washington** | Dept. of Corrections (WADOC) | 13 |
-| **Maryland** | Dept. of Public Safety and Correctional Services (DPSCS) | 13 |
-| **Massachusetts** | Dept. of Correction (MADOC) | 8 |
+| Jurisdiction | Agency | Facilities | Institutions data |
+|--------------|--------|------------|------|
+| **Federal** | Bureau of Prisons (BOP) | 122 | [CSV](https://stilesdata.com/prisons/federal/federal_prisons.csv) \| [JSON](https://stilesdata.com/prisons/federal/federal_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/federal/federal_prisons.geojson) |
+| **Texas** | Dept. of Criminal Justice (TDCJ) | 103 | [CSV](https://stilesdata.com/prisons/texas/texas_prisons.csv) \| [JSON](https://stilesdata.com/prisons/texas/texas_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/texas/texas_prisons.geojson) |
+| **Florida** | Dept. of Corrections (FDC) | 77 | [CSV](https://stilesdata.com/prisons/florida/florida_prisons.csv) \| [JSON](https://stilesdata.com/prisons/florida/florida_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/florida/florida_prisons.geojson) |
+| **Georgia** | Dept. of Corrections (GDC) | 67 | [CSV](https://stilesdata.com/prisons/georgia/georgia_prisons.csv) \| [JSON](https://stilesdata.com/prisons/georgia/georgia_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/georgia/georgia_prisons.geojson) |
+| **North Carolina** | Dept. of Adult Correction (DAC) | 58 | [CSV](https://stilesdata.com/prisons/north_carolina/north_carolina_prisons.csv) \| [JSON](https://stilesdata.com/prisons/north_carolina/north_carolina_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/north_carolina/north_carolina_prisons.geojson) |
+| **New York** | Dept. of Corrections and Community Supervision (DOCCS) | 42 | [CSV](https://stilesdata.com/prisons/new_york/new_york_prisons.csv) \| [JSON](https://stilesdata.com/prisons/new_york/new_york_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/new_york/new_york_prisons.geojson) |
+| **Virginia** | Dept. of Corrections (VADOC) | 37 | [CSV](https://stilesdata.com/prisons/virginia/virginia_prisons.csv) \| [JSON](https://stilesdata.com/prisons/virginia/virginia_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/virginia/virginia_prisons.geojson) |
+| **California** | Dept. of Corrections and Rehabilitation (CDCR) | 31 | [CSV](https://stilesdata.com/prisons/california/california_prisons.csv) \| [JSON](https://stilesdata.com/prisons/california/california_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/california/california_prisons.geojson) |
+| **Illinois** | Dept. of Corrections (IDOC) | 29 | [CSV](https://stilesdata.com/prisons/illinois/illinois_prisons.csv) \| [JSON](https://stilesdata.com/prisons/illinois/illinois_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/illinois/illinois_prisons.geojson) |
+| **Pennsylvania** | Dept. of Corrections (PA DOC) | 24 | [CSV](https://stilesdata.com/prisons/pennsylvania/pennsylvania_prisons.csv) \| [JSON](https://stilesdata.com/prisons/pennsylvania/pennsylvania_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/pennsylvania/pennsylvania_prisons.geojson) |
+| **Michigan** | Dept. of Corrections (MDOC) | 23 | [CSV](https://stilesdata.com/prisons/michigan/michigan_prisons.csv) \| [JSON](https://stilesdata.com/prisons/michigan/michigan_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/michigan/michigan_prisons.geojson) |
+| **Missouri** | Dept. of Corrections (MODOC) | 19 | [CSV](https://stilesdata.com/prisons/missouri/missouri_prisons.csv) \| [JSON](https://stilesdata.com/prisons/missouri/missouri_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/missouri/missouri_prisons.geojson) |
+| **Indiana** | Dept. of Correction (IDOC) | 18 | [CSV](https://stilesdata.com/prisons/indiana/indiana_prisons.csv) \| [JSON](https://stilesdata.com/prisons/indiana/indiana_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/indiana/indiana_prisons.geojson) |
+| **Arizona** | Dept. of Corrections (ADOC) | 15 | [CSV](https://stilesdata.com/prisons/arizona/arizona_prisons.csv) \| [JSON](https://stilesdata.com/prisons/arizona/arizona_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/arizona/arizona_prisons.geojson) |
+| **Tennessee** | Dept. of Correction (TDOC) | 15 | [CSV](https://stilesdata.com/prisons/tennessee/tennessee_prisons.csv) \| [JSON](https://stilesdata.com/prisons/tennessee/tennessee_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/tennessee/tennessee_prisons.geojson) |
+| **Washington** | Dept. of Corrections (WADOC) | 13 | [CSV](https://stilesdata.com/prisons/washington/washington_prisons.csv) \| [JSON](https://stilesdata.com/prisons/washington/washington_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/washington/washington_prisons.geojson) |
+| **Maryland** | Dept. of Public Safety and Correctional Services (DPSCS) | 13 | [CSV](https://stilesdata.com/prisons/maryland/maryland_prisons.csv) \| [JSON](https://stilesdata.com/prisons/maryland/maryland_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/maryland/maryland_prisons.geojson) |
+| **Massachusetts** | Dept. of Correction (MADOC) | 8 | [CSV](https://stilesdata.com/prisons/massachusetts/massachusetts_prisons.csv) \| [JSON](https://stilesdata.com/prisons/massachusetts/massachusetts_prisons.json) \| [GeoJSON](https://stilesdata.com/prisons/massachusetts/massachusetts_prisons.geojson) |
 
 **Total Coverage**: 714 facilities across 18 jurisdictions
 
