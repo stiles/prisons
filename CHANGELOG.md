@@ -7,6 +7,57 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.11.0] - 2025-09-29
+
+### Added
+- **Missouri Department of Corrections (MODOC) scraper** - 19 facilities
+  - Advanced multi-source data integration (facilities + warden pages)
+  - Facility acronym system (ACC, BCC, CCC, etc.) for precise identification
+  - 100% coordinate coverage with perfect geocoding
+  - 100% phone and address coverage
+  - 94.7% warden coverage (18/19 facilities, 1 vacant position)
+  - Pagination support for scalable data collection
+  - Intelligent data filtering (excludes probation offices)
+  - Comprehensive security level classifications (Minimum, Medium, Maximum, Diagnostic)
+  - Specialized facility types (Treatment Centers, Reception Centers, etc.)
+
+### Changed
+- Updated total coverage to **714 facilities across 18 jurisdictions**
+- Enhanced README table with Missouri inclusion
+- Improved multi-source data merging capabilities
+- Added facility acronym tracking for precise facility identification
+
+### Technical
+- Implemented advanced data merging by facility acronym
+- Added robust pagination handling for multi-page facility listings
+- Enhanced facility type classification algorithms
+- Improved data filtering to focus on correctional institutions
+
+## [0.10.0] - 2025-09-29
+
+### Added
+- **Maryland Department of Public Safety and Correctional Services (DPSCS) scraper** - 13 facilities
+  - SSL certificate bypass for problematic government websites
+  - Complex text parsing from unstructured contact information
+  - 69.2% coordinate coverage with multi-tier geocoding
+  - 84.6% phone coverage and 76.9% address coverage
+  - 100% warden coverage with comprehensive staff information
+  - Historical data extraction (facility opening years dating to 1932)
+  - Security level and facility classification parsing
+  - Staff hierarchy extraction (wardens, assistant wardens, administrators)
+
+### Changed
+- Updated total coverage to **695 facilities across 17 jurisdictions**
+- Enhanced README table with Maryland inclusion
+- Improved SSL handling for government websites with certificate issues
+- Added comprehensive staff data extraction capabilities
+
+### Technical
+- Implemented SSL certificate verification bypass
+- Enhanced unstructured text parsing for contact information
+- Added staff hierarchy extraction algorithms
+- Improved facility details parsing (security levels, opening years)
+
 ## [0.9.0] - 2025-09-28
 
 ### Added
@@ -189,14 +240,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Project Milestones
 
-### v0.8.0 Achievements
-- **656 total facilities** across **14 jurisdictions**
+### v0.11.0 Achievements
+- **714 total facilities** across **18 jurisdictions**
+- **Advanced multi-source data integration** (Missouri's facilities + warden pages)
+- **Perfect data quality** (Missouri: 100% coordinates, phones, addresses)
+- **SSL certificate handling** for problematic government websites
+- **Facility acronym systems** for precise identification
+- **Comprehensive staff hierarchies** (wardens, assistants, administrators)
+- **Historical facility data** (opening years dating to 1932)
 - **S3 cloud storage** with public data access at `https://stilesdata.com/prisons/`
-- **Advanced geocoding** with multi-service fallbacks
-- **Comprehensive data formats** (JSON, CSV, GeoJSON)
-- **Automated documentation** with dynamic table generation
-- **Pre-geocoded data sources** (Washington, Arizona) for maximum efficiency
-- **Regional facility organization** (Tennessee's East/Middle/West structure)
 
 ### Technical Evolution
 - **v0.1.0**: Basic scraping (4 jurisdictions, 298 facilities)
@@ -207,3 +259,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **v0.6.0**: Pre-geocoded sources (11 jurisdictions, 549 facilities)
 - **v0.7.0**: Automated documentation (13 jurisdictions, 641 facilities)
 - **v0.8.0**: Regional organization (14 jurisdictions, 656 facilities)
+- **v0.9.0**: Proxy integration (15 jurisdictions, 664 facilities)
+- **v0.10.0**: SSL handling (17 jurisdictions, 695 facilities)
+- **v0.11.0**: Multi-source integration (18 jurisdictions, 714 facilities)

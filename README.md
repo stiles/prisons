@@ -17,6 +17,7 @@ Collects data about correctional facilities from multiple jurisdictions, startin
 | **Illinois** | Dept. of Corrections (IDOC) | 29 |
 | **Pennsylvania** | Dept. of Corrections (PA DOC) | 24 |
 | **Michigan** | Dept. of Corrections (MDOC) | 23 |
+| **Missouri** | Dept. of Corrections (MODOC) | 19 |
 | **Indiana** | Dept. of Correction (IDOC) | 18 |
 | **Arizona** | Dept. of Corrections (ADOC) | 15 |
 | **Tennessee** | Dept. of Correction (TDOC) | 15 |
@@ -24,7 +25,7 @@ Collects data about correctional facilities from multiple jurisdictions, startin
 | **Maryland** | Dept. of Public Safety and Correctional Services (DPSCS) | 13 |
 | **Massachusetts** | Dept. of Correction (MADOC) | 8 |
 
-**Total Coverage**: 695 facilities across 17 jurisdictions
+**Total Coverage**: 714 facilities across 18 jurisdictions
 
 ## How it works
 

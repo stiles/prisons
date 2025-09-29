@@ -78,6 +78,10 @@ def get_facility_counts():
         'maryland': {
             'name': 'Maryland',
             'agency': 'Dept. of Public Safety and Correctional Services (DPSCS)'
+        },
+        'missouri': {
+            'name': 'Missouri',
+            'agency': 'Dept. of Corrections (MODOC)'
         }
     }
     

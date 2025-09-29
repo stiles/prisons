@@ -19,5 +19,6 @@ from .tennessee import TennesseeScraper
 from .massachusetts import MassachusettsScraper
 from .indiana import IndianaScraper
 from .maryland import MarylandScraper
+from .missouri import MissouriScraper
 
-__all__ = ['FederalScraper', 'CaliforniaScraper', 'NewYorkScraper', 'TexasScraper', 'IllinoisScraper', 'FloridaScraper', 'PennsylvaniaScraper', 'GeorgiaScraper', 'NorthCarolinaScraper', 'MichiganScraper', 'VirginiaScraper', 'WashingtonScraper', 'ArizonaScraper', 'TennesseeScraper', 'MassachusettsScraper', 'IndianaScraper', 'MarylandScraper']
+__all__ = ['FederalScraper', 'CaliforniaScraper', 'NewYorkScraper', 'TexasScraper', 'IllinoisScraper', 'FloridaScraper', 'PennsylvaniaScraper', 'GeorgiaScraper', 'NorthCarolinaScraper', 'MichiganScraper', 'VirginiaScraper', 'WashingtonScraper', 'ArizonaScraper', 'TennesseeScraper', 'MassachusettsScraper', 'IndianaScraper', 'MarylandScraper', 'MissouriScraper']
